@@ -3,7 +3,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * AnagramsCounter test ckass {@link AnagramsCounter}
+ * AnagramsCounter test class {@link AnagramsCounter}
  */
 public class AnagramsCounterTest {
     private final static String NON_EMPTY_INPUT = "aa aa odg dog gdo";

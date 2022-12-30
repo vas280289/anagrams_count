@@ -11,7 +11,7 @@ public class AnagramsCounter {
     /**
      * Count anagrams occurrences
      * @param input input string (words divided by space)
-     * @return
+     * @return anagrams count
      */
     public static long countAnagrams(String input) {
         String[] words = input.split(SPLITTER);
@@ -21,22 +21,22 @@ public class AnagramsCounter {
     }
 
     private static Map<String, Set<String>> getVariablesMap(String[] words) {
-        Map<String, Set<String>> r = new HashMap<>();
+        Map<String, Set<String>> variablesMap = new HashMap<>();
 
         for (String s : words) {
             if (StringUtils.isNotBlank(s)) {
                 String newKey = getAlphabeticalOrder(s);
-                Set<String> set = r.computeIfAbsent(newKey, k -> new HashSet<>());
+                Set<String> set = variablesMap.computeIfAbsent(newKey, k -> new HashSet<>());
 
                 set.add(s);
             }
         }
 
-        return r;
+        return variablesMap;
     }
 
     private static String getAlphabeticalOrder(String s) {
-        if (s != null) {
+        if (StringUtils.isNotBlank(s)) {
             char[] chars = s.toCharArray();
             Arrays.sort(chars);
 
